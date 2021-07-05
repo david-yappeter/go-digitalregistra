@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"time"
 )
 
@@ -38,17 +39,20 @@ func NewAPI(defaultUrl string, client ...Option) *API {
 func (a *API) newRequest(method string, link string, data url.Values) *API {
 	var body io.Reader = nil
 	if data != nil {
-		body = bytes.NewBufferString(data.Encode())
+		data.Add("username", os.Getenv("DIGITAL_REGISTRA_USERNAME"))
+		data.Add("password", os.Getenv("DIGITAL_REGISTRA_PASSWORD"))
 	} else {
 		data = url.Values{}
-		data.Add("username")
+		data.Add("username", os.Getenv("DIGITAL_REGISTRA_USERNAME"))
+		data.Add("password", os.Getenv("DIGITAL_REGISTRA_PASSWORD"))
 	}
+	body = bytes.NewBufferString(data.Encode())
 	request, err := http.NewRequest(method, link, body)
 	if err != nil {
 		a.Error = err
 		return a
 	}
-	request.Header.Set("Content-Type", "multipart/form-data")
+	request.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	a.Request = request
 	return a
 }
