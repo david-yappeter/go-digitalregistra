@@ -1,5 +1,8 @@
 package digitalregistra
 
+// DOMAIN
+// ==============================================================
+
 type CheckDomainParam struct {
 	Domain string `json:"domain" digitalregistra:"domain"`
 }
@@ -37,6 +40,9 @@ type RegisterDomainParam struct {
 	Category       string  `json:"category" digitalregistra:"category"`
 }
 
+// CONTACT
+// ==============================================================
+
 type CreateContactParam struct {
 	UserID           string  `json:"user_id" digitalregistra:"userid"`
 	Firstname        string  `json:"firstname" digitalregistra:"fname"`
@@ -56,7 +62,81 @@ type CreateContactParam struct {
 	PostalCode       string  `json:"postal_code" digitalregistra:"postal_code"`
 }
 
+type UpdateContactParam struct {
+	ContactID        *string `json:"user_id" digitalregistra:"contactid"`
+	NickHandle       *string `json:"nick_handle" digitalregistra:"nickhandle"`
+	Firstname        *string `json:"firstname" digitalregistra:"fname"`
+	Lastname         *string `json:"lastname" digitalregistra:"lname"`
+	Email            *string `json:"email" digitalregistra:"email"`
+	Company          *string `json:"company" digitalregistra:"company"`
+	Address          *string `json:"address" digitalregistra:"address"`
+	Address2         *string `json:"address2" digitalregistra:"address2"`
+	Address3         *string `json:"address3" digitalregistra:"address3"`
+	City             *string `json:"city" digitalregistra:"city"`
+	Province         *string `json:"provice" digitalregistra:"province"`
+	PhoneCountryCode *string `json:"phone_country_code" digitalregistra:"phone-cc"`
+	Phone            *string `json:"phone" digitalregistra:"phone"`
+	FaxCountryCode   *string `json:"fax_country_code" digitalregistra:"fax-cc"`
+	Fax              *string `json:"fax" digitalregistra:"fax"`
+	Country          *string `json:"country" digitalregistra:"country"`
+	PostalCode       *string `json:"postal_code" digitalregistra:"postal_code"`
+}
+
 type InfoContactParam struct {
 	ContactID  *string `json:"contact_id" digitalregistra:"contactid"`
 	NickHandle *string `json:"nick_handle" digitalregistra:"nickhandle"`
+}
+
+type DeleteContactParam struct {
+	ContactID string `json:"contact_id" digitalregistra:"contactid"`
+}
+
+// USER
+// ==============================================================
+
+type CreateUserParam struct {
+	Username         string  `json:"user_name" digitalregistra:"user_username"`
+	Password         string  `json:"password" digitalregistra:"user_password"`
+	Email            *string `json:"email" digitalregistra:"email"`
+	Firstname        string  `json:"firstname" digitalregistra:"fname"`
+	Company          *string `json:"company" digitalregistra:"company"`
+	Address          string  `json:"address" digitalregistra:"address"`
+	Address2         *string `json:"address2" digitalregistra:"address2"`
+	Address3         *string `json:"address3" digitalregistra:"address3"`
+	City             string  `json:"city" digitalregistra:"city"`
+	Province         string  `json:"province" digitalregistra:"province"`
+	PostalCode       string  `json:"postal_code" digitalregistra:"postal_code"`
+	Country          string  `json:"country" digitalregistra:"country"`
+	PhoneCountryCode string  `json:"phone_country_code" digitalregistra:"p_kdnegara"`
+	PhoneAreaCode    string  `json:"phone_area_code" digitalregistra:"p_kdarea"`
+	Phone            string  `json:"phone" digitalregistra:"phone"`
+	FaxCountryCode   *string `json:"fax_country_code" digitalregistra:"f_kdnegara"`
+	FaxAreaCode      *string `json:"fax_area_code" digitalregistra:"f_kdarea"`
+	Fax              *string `json:"fax" digitalregistra:"fax"`
+}
+
+type InfoUserParam struct {
+	UserID   *int    `json:"user_id" digitalregistra:"userid"`
+	Username *string `json:"username" digitalregistra:"user_username"`
+}
+
+type UpdateUserParam struct {
+	UserID           string  `json:"user_id" digitalregistra:"userid"`
+	Username         *string `json:"username" digitalregistra:"user_username"`
+	Email            *string `json:"email" digitalregistra:"email"`
+	Firstname        *string `json:"firstname" digitalregistra:"fname"`
+	Company          *string `json:"company" digitalregistra:"company"`
+	Address          *string `json:"address" digitalregistra:"address"`
+	Address2         *string `json:"address2" digitalregistra:"address2"`
+	Address3         *string `json:"address3" digitalregistra:"address3"`
+	City             *string `json:"city" digitalregistra:"city"`
+	Province         *string `json:"province" digitalregistra:"province"`
+	PostalCode       *string `json:"postal_code" digitalregistra:"postal_code"`
+	Country          *string `json:"country" digitalregistra:"country"`
+	PhoneCountryCode *string `json:"phone_country_code" digitalregistra:"p_kdnegara"`
+	PhoneAreaCode    *string `json:"phone_area_code" digitalregistra:"p_kdarea"`
+	Phone            *string `json:"phone" digitalregistra:"phone"`
+	FaxCountryCode   *string `json:"fax_country_code" digitalregistra:"f_kdnegara"`
+	FaxAreaCode      *string `json:"fax_area_code" digitalregistra:"f_kdarea"`
+	Fax              *string `json:"fax" digitalregistra:"fax"`
 }
