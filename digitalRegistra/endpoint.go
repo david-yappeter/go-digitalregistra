@@ -8,7 +8,6 @@ import (
 
 // DOMAIN
 // ====================================================================
-
 func (a *API) endpointDomainRegistration(data url.Values) (string, string, url.Values) {
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/register"), data
 }
@@ -82,9 +81,18 @@ func (a *API) endpointPremiumExpressRegister(data url.Values) (string, string, u
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/premium_expressregister"), data
 }
 
+// EPP
+// ====================================================================
+func (a *API) endpointGetEpp(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/getepp"), data
+}
+
+func (a *API) endpointSetEpp(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/setepp"), data
+}
+
 // Contact
 // ====================================================================
-
 func (a *API) endpointCreateContact(data url.Values) (string, string, url.Values) {
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "contact/create"), data
 }
@@ -114,4 +122,27 @@ func (a *API) endpointInfoUser(data url.Values) (string, string, url.Values) {
 
 func (a *API) endpointUpdateUser(data url.Values) (string, string, url.Values) {
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "user/update"), data
+}
+
+// DNS
+// ====================================================================
+
+func (a *API) endpointInfoDNS(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "dns/info"), data
+}
+
+func (a *API) endpointInisialisasiDNS(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "dns/start"), data
+}
+
+func (a *API) endpointEditDNSRecord(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "dns/edit"), data
+}
+
+func (a *API) endpointCreateDNSRecord(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "dns/create"), data
+}
+
+func (a *API) endpointDeleteDNSRecord(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "dns/delete"), data
 }
