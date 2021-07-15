@@ -9,12 +9,77 @@ import (
 // DOMAIN
 // ====================================================================
 
+func (a *API) endpointDomainRegistration(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/register"), data
+}
+
+func (a *API) endpointTransferDomain(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/transfer"), data
+}
+
+func (a *API) endpointLockDomain(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/lock"), data
+}
+
+func (a *API) endpointUnlockDomain(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/unlock"), data
+}
+
+func (a *API) endpointRenewDomain(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/renew"), data
+}
+
+func (a *API) endpointInfoDomain(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/info"), data
+}
+
+func (a *API) endpointUpdateNameserver(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/updatens"), data
+}
+
+func (a *API) endpointUploadDocumentLink(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/documenturl"), data
+}
+
+func (a *API) endpointUpdateContactDomain(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/editcontact"), data
+}
+func (a *API) endpointExpressRegister(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/expressregister"), data
+}
+func (a *API) endpointExpressTransfer(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/expresstransfer"), data
+}
+func (a *API) endpointSuspendDomain(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/suspend"), data
+}
+
+func (a *API) endpointUnsuspendDomain(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/unsuspend"), data
+}
+
+func (a *API) endpointCheckVerificationInfo(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/veri_info"), data
+}
+
+func (a *API) endpointSetIDProtection(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/set_idprotection"), data
+}
+
+func (a *API) endpointResendVerificationEmail(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/resend_raa"), data
+}
+
+func (a *API) endpointCancelDomain(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/cancel"), data
+}
+
 func (a *API) endpointCheckDomain(data url.Values) (string, string, url.Values) {
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/check"), data
 }
 
-func (a *API) endpointDomainRegistration(data url.Values) (string, string, url.Values) {
-	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/check"), data
+func (a *API) endpointPremiumExpressRegister(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/premium_expressregister"), data
 }
 
 // Contact

@@ -1,12 +1,30 @@
 package main
 
-// import (
-// 	digitalregistra "myapp/digitalRegistra"
-// 	"os"
-// )
+import (
+	digitalregistra "myapp/digitalregistra"
+	"os"
+)
 
 func main() {
-	// api := digitalregistra.NewAPI(os.Getenv("DIGITAL_REGISTRA_RESELLER_URL"))
+	api := digitalregistra.NewAPI(os.Getenv("DIGITAL_REGISTRA_RESELLER_URL"))
+
+	api.UpdateNameserver(digitalregistra.UpdateNameserverParam{
+		Domain: "testerdomainkuuuuuu.co.id",
+		ApiID:  123,
+	})
+
+	// test, err := api.CancelDomain(digitalregistra.CancelDomainParam{
+	// 	Domain: "testerdomainkuuuuuu.co.id",
+	// 	ApiID:  123,
+	// })
+
+	// test, err := api.InfoDomain(digitalregistra.InfoDomainParam{
+	// 	Domain: "testerdomainkuuuuuu.co.id",
+	// 	ApiID:  123,
+	// })
+
+	// fmt.Printf("%+v\n", test)
+	// fmt.Printf("%+v\n", err)
 
 	// // resppp, errr := api.DomainRegistration(digitalregistra.RegisterDomainParam{
 	// // 	Domain: "testerrrrrrr.co.id",
@@ -31,9 +49,9 @@ func main() {
 
 	// a := "qoweqiwoeiq.c"
 	// tempp := digitalregistra.RegisterDomainParam{
-	// 	Domain:         "asdasfasg.com",
+	// 	Domain:         "testerdomainkuuuuuu.co.id",
 	// 	ApiID:          123,
-	// 	Periode:        12,
+	// 	Periode:        2,
 	// 	NS1:            "asdasdaasdasdsa",
 	// 	NS2:            "bbdfjbidfjbofd",
 	// 	NS3:            new(string),
@@ -47,17 +65,15 @@ func main() {
 	// 	PostCode:       "20000",
 	// 	PhoneNumber:    "6285377778888",
 	// 	Email:          "daviddummy2002@gmail.com",
-	// 	UserUsername:   "daviddummy2002",
+	// 	UserUsername:   "daviddummy2002@gmail.com",
 	// 	UserFirstname:  "dav",
 	// 	UserCompany:    "personal",
 	// 	UserAddress:    a,
-	// 	UserCity:       "",
-	// 	UserProvince:   "",
-	// 	UserCountry:    "",
-	// 	UserPostalCode: "",
+	// 	UserCity:       "ASDASDAS",
+	// 	UserProvince:   "EGSERGESR",
+	// 	UserCountry:    "ID",
+	// 	UserPostalCode: "20020",
 	// 	Category:       "",
 	// }
-
-	// fmt.Printf("%#v\n", digitalregistra.ModelToURLValues(tempp))
-
+	// api.RegisterDomain(tempp)
 }

@@ -5,7 +5,22 @@ import "encoding/xml"
 // DOMAIN
 // =============================================================
 
-type DomainCheckResponse struct {
+type RegisterDomainResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData struct {
+		Text      string `xml:",chardata"`
+		Productid string `xml:"productid"`
+		Invoiceid string `xml:"invoiceid"`
+	} `xml:"resultData"`
+}
+
+type TransferDomainResponse struct {
 	XMLName xml.Name `xml:"epp"`
 	Text    string   `xml:",chardata"`
 	Result  struct {
@@ -14,6 +29,229 @@ type DomainCheckResponse struct {
 		ResultMsg  string `xml:"resultMsg"`
 	} `xml:"result"`
 	ResultData string `xml:"resultData"`
+}
+
+type LockDomainResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData string `xml:"resultData"`
+}
+
+type UnlockDomainResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData string `xml:"resultData"`
+}
+
+type InfoDomainResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData struct {
+		Text              string `xml:",chardata"`
+		Domainid          string `xml:"domainid"`
+		ApiID             string `xml:"api_id"`
+		Userid            string `xml:"userid"`
+		Username          string `xml:"username"`
+		Domain            string `xml:"domain"`
+		Startdate         string `xml:"startdate"`
+		Enddate           string `xml:"enddate"`
+		Unixstartdate     string `xml:"unixstartdate"`
+		Unixenddate       string `xml:"unixenddate"`
+		Canceldate        string `xml:"canceldate"`
+		ContactRegistrant string `xml:"contact_registrant"`
+		ContactAdmin      string `xml:"contact_admin"`
+		ContactBilling    string `xml:"contact_billing"`
+		ContactTech       string `xml:"contact_tech"`
+		Ns1               string `xml:"ns1"`
+		Ns2               string `xml:"ns2"`
+		Ns3               string `xml:"ns3"`
+		Ns4               string `xml:"ns4"`
+		Ns5               string `xml:"ns5"`
+		Ns6               string `xml:"ns6"`
+		Ns7               string `xml:"ns7"`
+		Ns8               string `xml:"ns8"`
+		Idprotection      string `xml:"idprotection"`
+		Status            string `xml:"status"`
+		Authcode          string `xml:"authcode"`
+		Suspended         string `xml:"suspended"`
+		Transferlock      string `xml:"transferlock"`
+		Resellerlock      string `xml:"resellerlock"`
+		Registrarlock     string `xml:"registrarlock"`
+	} `xml:"resultData"`
+}
+
+type UpdateNameserverResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData string `xml:"resultData"`
+}
+
+type UploadDocumentLinkResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData struct {
+		Text string `xml:",chardata"`
+		URL  string `xml:"url"`
+	} `xml:"resultData"`
+}
+
+type UpdateContactDomainResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+}
+
+type ExpressRegisterResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData struct {
+		Text   string `xml:",chardata"`
+		Status string `xml:"status"`
+		CrDate string `xml:"crDate"`
+		ExDate string `xml:"exDate"`
+	} `xml:"resultData"`
+}
+
+type ExpressTransferResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+}
+
+type SuspendDomainResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData string `xml:"resultData"`
+}
+
+type UnsuspendDomainResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData string `xml:"resultData"`
+}
+type SetIDProtectionResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData string `xml:"resultData"`
+}
+
+type CheckVerificationInfoResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData struct {
+		Text                     string `xml:",chardata"`
+		RaaVerificationStatus    string `xml:"raaVerificationStatus"`
+		RegistrantEmail          string `xml:"registrantEmail"`
+		RaaVerificationStartTime string `xml:"raaVerificationStartTime"`
+		RaaVerificationEndTime   string `xml:"raaVerificationEndTime"`
+	} `xml:"resultData"`
+}
+
+type ResendVerificationEmailResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData string `xml:"resultData"`
+}
+
+type CancelDomainResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData string `xml:"resultData"`
+}
+
+type CheckDomainResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData string `xml:"resultData"`
+}
+
+type PremiumExpressRegisterResponse struct {
+	XMLName xml.Name `xml:"epp"`
+	Text    string   `xml:",chardata"`
+	Result  struct {
+		Text       string `xml:",chardata"`
+		ResultCode string `xml:"resultCode"`
+		ResultMsg  string `xml:"resultMsg"`
+	} `xml:"result"`
+	ResultData struct {
+		Text   string `xml:",chardata"`
+		Status string `xml:"status"`
+		CrDate string `xml:"crDate"`
+		ExDate string `xml:"exDate"`
+	} `xml:"resultData"`
 }
 
 // CONTACT
