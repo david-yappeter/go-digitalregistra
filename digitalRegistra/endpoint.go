@@ -109,6 +109,24 @@ func (a *API) endpointDeleteContact(data url.Values) (string, string, url.Values
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "contact/delete"), data
 }
 
+// HOST
+// ====================================================================
+func (a *API) endpointCreateHost(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "host/addchild"), data
+}
+
+func (a *API) endpointUpdateHost(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "host/updatechild"), data
+}
+
+func (a *API) endpointInfoHost(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "host/info"), data
+}
+
+func (a *API) endpointDeleteHost(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "host/delchild"), data
+}
+
 // User
 // ====================================================================
 
@@ -145,4 +163,19 @@ func (a *API) endpointCreateDNSRecord(data url.Values) (string, string, url.Valu
 
 func (a *API) endpointDeleteDNSRecord(data url.Values) (string, string, url.Values) {
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "dns/delete"), data
+}
+
+// DNSSEC
+// ====================================================================
+
+func (a *API) endpointListDNSSECRecords(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/listds"), data
+}
+
+func (a *API) endpointAddDNSSECRecords(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/addds"), data
+}
+
+func (a *API) endpointDeleteDNSSECRecords(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/delds"), data
 }

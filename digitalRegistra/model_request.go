@@ -270,26 +270,53 @@ type (
 	}
 )
 
-// USER
+// HOST
 // ==============================================================
 type (
+	CreateHostParam struct {
+		Domain     string `json:"domain" digitalregistra:"domain"`
+		ApiID      int    `json:"api_id" digitalregistra:"api_id"`
+		Nameserver string `json:"nameserver" digitalregistra:"nameserver"`
+		IpAddress  string `json:"ip_address" digitalregistra:"ipaddress"`
+	}
+
+	UpdateHostParam struct {
+		Domain     string `json:"domain" digitalregistra:"domain"`
+		ApiID      int    `json:"api_id" digitalregistra:"api_id"`
+		Nameserver string `json:"nameserver" digitalregistra:"nameserver"`
+		IpAddress  string `json:"ip_address" digitalregistra:"ipaddress"`
+	}
+
+	InfoHostParam struct {
+		HostName string `json:"host_name" digitalregistra:"hostname"`
+	}
+
+	DeleteHostParam struct {
+		Domain     string `json:"domain" digitalregistra:"domain"`
+		Nameserver string `json:"nameserver" digitalregistra:"nameserver"`
+	}
+)
+
+// USE
+// =============================================================
+type (
 	CreateUserParam struct {
-		Username         string  `json:"user_name" digitalregistra:"user_username"`
-		Password         string  `json:"password" digitalregistra:"user_password"`
+		Username         string  `json:"user_name" digitalregistra:"use_username"`
+		Password         string  `json:"password" digitalregistra:"user_pasword"`
 		Email            *string `json:"email" digitalregistra:"email"`
 		Firstname        string  `json:"firstname" digitalregistra:"fname"`
 		Company          *string `json:"company" digitalregistra:"company"`
 		Address          string  `json:"address" digitalregistra:"address"`
-		Address2         *string `json:"address2" digitalregistra:"address2"`
+		Address2         *string `json:"address2" digitalregistra:"adress2"`
 		Address3         *string `json:"address3" digitalregistra:"address3"`
 		City             string  `json:"city" digitalregistra:"city"`
 		Province         string  `json:"province" digitalregistra:"province"`
 		PostalCode       string  `json:"postal_code" digitalregistra:"postal_code"`
 		Country          string  `json:"country" digitalregistra:"country"`
-		PhoneCountryCode string  `json:"phone_country_code" digitalregistra:"p_kdnegara"`
+		PhoneCountryCode string  `json:"phone_country_code" digitalregitra:"p_kdnegara"`
 		PhoneAreaCode    string  `json:"phone_area_code" digitalregistra:"p_kdarea"`
 		Phone            string  `json:"phone" digitalregistra:"phone"`
-		FaxCountryCode   *string `json:"fax_country_code" digitalregistra:"f_kdnegara"`
+		FaxCountryCode   *string `json:"fax_country_code" digitalreistra:"f_kdnegara"`
 		FaxAreaCode      *string `json:"fax_area_code" digitalregistra:"f_kdarea"`
 		Fax              *string `json:"fax" digitalregistra:"fax"`
 	}
@@ -300,29 +327,29 @@ type (
 	}
 
 	UpdateUserParam struct {
-		UserID           string  `json:"user_id" digitalregistra:"userid"`
-		Username         *string `json:"username" digitalregistra:"user_username"`
+		UserID           string  `json:"user_id" digitalregistra:"useri"`
+		Username         *string `json:"username" digitalregistra:"user_usename"`
 		Email            *string `json:"email" digitalregistra:"email"`
 		Firstname        *string `json:"firstname" digitalregistra:"fname"`
 		Company          *string `json:"company" digitalregistra:"company"`
 		Address          *string `json:"address" digitalregistra:"address"`
-		Address2         *string `json:"address2" digitalregistra:"address2"`
+		Address2         *string `json:"address2" digitalregistra:"adress2"`
 		Address3         *string `json:"address3" digitalregistra:"address3"`
 		City             *string `json:"city" digitalregistra:"city"`
 		Province         *string `json:"province" digitalregistra:"province"`
 		PostalCode       *string `json:"postal_code" digitalregistra:"postal_code"`
 		Country          *string `json:"country" digitalregistra:"country"`
-		PhoneCountryCode *string `json:"phone_country_code" digitalregistra:"p_kdnegara"`
+		PhoneCountryCode *string `json:"phone_country_code" digitalregitra:"p_kdnegara"`
 		PhoneAreaCode    *string `json:"phone_area_code" digitalregistra:"p_kdarea"`
 		Phone            *string `json:"phone" digitalregistra:"phone"`
-		FaxCountryCode   *string `json:"fax_country_code" digitalregistra:"f_kdnegara"`
+		FaxCountryCode   *string `json:"fax_country_code" digitalreistra:"f_kdnegara"`
 		FaxAreaCode      *string `json:"fax_area_code" digitalregistra:"f_kdarea"`
 		Fax              *string `json:"fax" digitalregistra:"fax"`
 	}
 )
 
 // DNS
-// ==============================================================
+// =============================================================
 type (
 	InfoDNSParam struct {
 		Domain string `json:"domain" digitalregistra:"domain"`
@@ -348,4 +375,26 @@ type (
 		Domain string `json:"domain" digitalregistra:"domain"`
 		DnsID  int    `json:"dns_id" digitalregistra:"dnsid"`
 	}
+)
+
+
+// DNSSEC
+// =============================================================
+type (
+    ListDNSSECRecordsParam struct {
+        Domain string `json:"domain" digitalregistra:"domain"`
+    }
+
+    AddDNSSECRecordsParam struct {
+        Domain string `json:"domain" digitalregistra:"domain"`
+        KeyTag int `json:"key_tag" digitalregistra:"keytag"`
+        Algorithm int `json:"algorithm" digitalregistra:"algorithm"`
+        DigestType int `json:"digesttype" digitalregistra:"digesttype"`
+        Digest string `json:"digest" digitalregistra:"digest"`
+    }
+
+    DeleteDNSSECRecordsParam struct {
+        Domain string `json:"domain" digitalregistra:"domain"`
+        RecordID int `json:"record_id" digitalregistra:"id"`
+    }
 )

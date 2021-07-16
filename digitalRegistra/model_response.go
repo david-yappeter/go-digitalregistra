@@ -365,6 +365,51 @@ type (
 // USER
 // =============================================================
 type (
+    CreateHostResponse struct {
+        XMLName xml.Name `xml:"epp"`
+        Text    string   `xml:",chardata"`
+        Result  struct {
+            Text       string `xml:",chardata"`
+            ResultCode string `xml:"resultCode"`
+            ResultMsg  string `xml:"resultMsg"`
+        } `xml:"result"`
+    } 
+
+    UpdateHostResponse struct {
+        XMLName xml.Name `xml:"epp"`
+        Text    string   `xml:",chardata"`
+        Result  struct {
+            Text       string `xml:",chardata"`
+            ResultCode string `xml:"resultCode"`
+            ResultMsg  string `xml:"resultMsg"`
+        } `xml:"result"`
+    } 
+    
+    
+    InfoHostResponse struct {
+        XMLName xml.Name `xml:"epp"`
+        Text    string   `xml:",chardata"`
+        Result  struct {
+            Text       string `xml:",chardata"`
+            ResultCode string `xml:"resultCode"`
+            ResultMsg  string `xml:"resultMsg"`
+        } `xml:"result"`
+    } 
+    
+    DeleteHostResponse struct {
+        XMLName xml.Name `xml:"epp"`
+        Text    string   `xml:",chardata"`
+        Result  struct {
+            Text       string `xml:",chardata"`
+            ResultCode string `xml:"resultCode"`
+            ResultMsg  string `xml:"resultMsg"`
+        } `xml:"result"`
+    } 
+)
+
+// USER
+// =============================================================
+type (
 	CreateUserResponse struct {
 		XMLName xml.Name `xml:"epp"`
 		Text    string   `xml:",chardata"`
@@ -560,4 +605,55 @@ type (
 			ResultMsg  string `xml:"resultMsg"`
 		} `xml:"result"`
 	}
+)
+
+type (
+     ListDNSSECRecordsResponse struct {
+        XMLName xml.Name `xml:"epp"`
+        Text    string   `xml:",chardata"`
+        Result  struct {
+            Text       string `xml:",chardata"`
+            ResultCode string `xml:"resultCode"`
+            ResultMsg  string `xml:"resultMsg"`
+        } `xml:"result"`
+        ResultData struct {
+            Text   string `xml:",chardata"`
+            Dnssec struct {
+                Text  string `xml:",chardata"`
+                Value []struct {
+                    Text       string `xml:",chardata"`
+                    ID         string `xml:"id"`
+                    Keytag     string `xml:"keytag"`
+                    Algorithm  string `xml:"algorithm"`
+                    Digesttype string `xml:"digesttype"`
+                    Digest     string `xml:"digest"`
+                } `xml:"value"`
+            } `xml:"dnssec"`
+            Domain string `xml:"domain"`
+        } `xml:"resultData"`
+    } 
+
+   
+    AddDNSSECRecordsResponse struct  {
+        XMLName xml.Name `xml:"epp"`
+        Text    string   `xml:",chardata"`
+        Result  struct {
+            Text       string `xml:",chardata"`
+            ResultCode string `xml:"resultCode"`
+            ResultMsg  string `xml:"resultMsg"`
+        } `xml:"result"`
+        ResultData string `xml:"resultData"`
+    } 
+    
+    DeleteDNSSECRecordsResponse struct {
+        XMLName xml.Name `xml:"epp"`
+        Text    string   `xml:",chardata"`
+        Result  struct {
+            Text       string `xml:",chardata"`
+            ResultCode string `xml:"resultCode"`
+            ResultMsg  string `xml:"resultMsg"`
+        } `xml:"result"`
+        ResultData string `xml:"resultData"`
+    } 
+    
 )
