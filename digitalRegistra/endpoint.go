@@ -127,6 +127,34 @@ func (a *API) endpointDeleteHost(data url.Values) (string, string, url.Values) {
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "host/delchild"), data
 }
 
+
+// RESELLER
+// ====================================================================
+func (a *API) endpointRequestDepositReseller(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "reseller/requestdeposit"), data
+}
+
+func (a *API) endpointCekResellerFund(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "reseller/cekfund"), data
+}
+
+
+func (a *API) endpointGetResellerPrice(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "reseller/getprice"), data
+}
+
+func (a *API) endpointAddSubresellerDirectFund(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "billing/addsubresellerfund"), data
+}
+
+func (a *API) endpointListSubreseller(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "v2/reseller/subresellers"), data
+}
+
+func (a *API) endpointInfoSubreseller(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "v2/reseller/subreseller"), data
+}
+
 // User
 // ====================================================================
 
@@ -140,6 +168,13 @@ func (a *API) endpointInfoUser(data url.Values) (string, string, url.Values) {
 
 func (a *API) endpointUpdateUser(data url.Values) (string, string, url.Values) {
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "user/update"), data
+}
+
+// MOVE SERVICE
+// ====================================================================
+
+func (a *API) endpointMoveService(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "domain/moveservice"), data
 }
 
 // DNS
@@ -163,6 +198,21 @@ func (a *API) endpointCreateDNSRecord(data url.Values) (string, string, url.Valu
 
 func (a *API) endpointDeleteDNSRecord(data url.Values) (string, string, url.Values) {
 	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "dns/delete"), data
+}
+
+// FORWARD
+// ====================================================================
+
+func (a *API) endpointInitialForwarder(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "forward/configure"), data
+}
+
+func (a *API) endpointStatusForward(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "forward/status"), data
+}
+
+func (a *API) endpointUpdateForward(data url.Values) (string, string, url.Values) {
+	return http.MethodPost, fmt.Sprintf("%s/api/%s", a.DefaultUrl, "forward/update"), data
 }
 
 // DNSSEC

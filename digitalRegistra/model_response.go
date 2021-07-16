@@ -298,9 +298,143 @@ type (
 	}
 )
 
+// RESELLER
+// =============================================================
+type (
+	RequestDepositResellerResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+	}
+
+	CekResellerFundResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData struct {
+			Text    string `xml:",chardata"`
+			Deposit string `xml:"deposit"`
+		} `xml:"resultData"`
+	}
+
+	GetResellerPriceResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData struct {
+			Text string `xml:",chardata"`
+			File string `xml:"file"`
+		} `xml:"resultData"`
+	}
+
+	AddSubresellerDirectFundResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData string `xml:"resultData"`
+	}
+
+	ListSubresellerResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData struct {
+			Text        string `xml:",chardata"`
+			ResellerNum string `xml:"resellerNum"`
+			Reseller    []struct {
+				Text       string `xml:",chardata"`
+				Username   string `xml:"username"`
+				Email      string `xml:"email"`
+				Fname      string `xml:"fname"`
+				Lname      string `xml:"lname"`
+				Company    string `xml:"company"`
+				Address    string `xml:"address"`
+				Address2   string `xml:"address2"`
+				Address3   string `xml:"address3"`
+				City       string `xml:"city"`
+				Province   string `xml:"province"`
+				Phone      string `xml:"phone"`
+				Mphone     string `xml:"mphone"`
+				Fax        string `xml:"fax"`
+				Country    string `xml:"country"`
+				PostalCode string `xml:"postal_code"`
+				TaxStatus  string `xml:"tax_status"`
+				Ns1        string `xml:"ns1"`
+				Ns2        string `xml:"ns2"`
+				Ns3        string `xml:"ns3"`
+				Ns4        string `xml:"ns4"`
+				Ns5        string `xml:"ns5"`
+				Ns6        string `xml:"ns6"`
+				Ns7        string `xml:"ns7"`
+				Ns8        string `xml:"ns8"`
+			} `xml:"reseller"`
+		} `xml:"resultData"`
+	}
+
+	InfoSubresellerResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData struct {
+			Text        string `xml:",chardata"`
+			ResellerNum string `xml:"resellerNum"`
+			Reseller    struct {
+				Text       string   `xml:",chardata"`
+				Username   []string `xml:"username"`
+				Email      string   `xml:"email"`
+				Fname      string   `xml:"fname"`
+				Lname      string   `xml:"lname"`
+				Company    string   `xml:"company"`
+				Address    string   `xml:"address"`
+				Address2   string   `xml:"address2"`
+				Address3   string   `xml:"address3"`
+				City       string   `xml:"city"`
+				Province   string   `xml:"province"`
+				Phone      string   `xml:"phone"`
+				Mphone     string   `xml:"mphone"`
+				Fax        string   `xml:"fax"`
+				Country    string   `xml:"country"`
+				PostalCode string   `xml:"postal_code"`
+				TaxStatus  string   `xml:"tax_status"`
+				Ns1        string   `xml:"ns1"`
+				Ns2        string   `xml:"ns2"`
+				Ns3        string   `xml:"ns3"`
+				Ns4        string   `xml:"ns4"`
+				Ns5        string   `xml:"ns5"`
+				Ns6        string   `xml:"ns6"`
+				Ns7        string   `xml:"ns7"`
+				Ns8        string   `xml:"ns8"`
+			} `xml:"reseller"`
+		} `xml:"resultData"`
+	}
+)
+
 // CONTACT
 // =============================================================
-
 type (
 	CreateContactResponse struct {
 		XMLName xml.Name `xml:"epp"`
@@ -365,46 +499,45 @@ type (
 // USER
 // =============================================================
 type (
-    CreateHostResponse struct {
-        XMLName xml.Name `xml:"epp"`
-        Text    string   `xml:",chardata"`
-        Result  struct {
-            Text       string `xml:",chardata"`
-            ResultCode string `xml:"resultCode"`
-            ResultMsg  string `xml:"resultMsg"`
-        } `xml:"result"`
-    } 
+	CreateHostResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+	}
 
-    UpdateHostResponse struct {
-        XMLName xml.Name `xml:"epp"`
-        Text    string   `xml:",chardata"`
-        Result  struct {
-            Text       string `xml:",chardata"`
-            ResultCode string `xml:"resultCode"`
-            ResultMsg  string `xml:"resultMsg"`
-        } `xml:"result"`
-    } 
-    
-    
-    InfoHostResponse struct {
-        XMLName xml.Name `xml:"epp"`
-        Text    string   `xml:",chardata"`
-        Result  struct {
-            Text       string `xml:",chardata"`
-            ResultCode string `xml:"resultCode"`
-            ResultMsg  string `xml:"resultMsg"`
-        } `xml:"result"`
-    } 
-    
-    DeleteHostResponse struct {
-        XMLName xml.Name `xml:"epp"`
-        Text    string   `xml:",chardata"`
-        Result  struct {
-            Text       string `xml:",chardata"`
-            ResultCode string `xml:"resultCode"`
-            ResultMsg  string `xml:"resultMsg"`
-        } `xml:"result"`
-    } 
+	UpdateHostResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+	}
+
+	InfoHostResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+	}
+
+	DeleteHostResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+	}
 )
 
 // USER
@@ -459,6 +592,21 @@ type (
 	}
 
 	UpdateUserResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData string `xml:"resultData"`
+	}
+)
+
+// MOVE SERVICE
+// =============================================================
+type (
+	MoveServiceResponse struct {
 		XMLName xml.Name `xml:"epp"`
 		Text    string   `xml:",chardata"`
 		Result  struct {
@@ -607,53 +755,98 @@ type (
 	}
 )
 
+// FORWARD
+// =============================================================
 type (
-     ListDNSSECRecordsResponse struct {
-        XMLName xml.Name `xml:"epp"`
-        Text    string   `xml:",chardata"`
-        Result  struct {
-            Text       string `xml:",chardata"`
-            ResultCode string `xml:"resultCode"`
-            ResultMsg  string `xml:"resultMsg"`
-        } `xml:"result"`
-        ResultData struct {
-            Text   string `xml:",chardata"`
-            Dnssec struct {
-                Text  string `xml:",chardata"`
-                Value []struct {
-                    Text       string `xml:",chardata"`
-                    ID         string `xml:"id"`
-                    Keytag     string `xml:"keytag"`
-                    Algorithm  string `xml:"algorithm"`
-                    Digesttype string `xml:"digesttype"`
-                    Digest     string `xml:"digest"`
-                } `xml:"value"`
-            } `xml:"dnssec"`
-            Domain string `xml:"domain"`
-        } `xml:"resultData"`
-    } 
+	InitialForwarderResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData string `xml:"resultData"`
+	}
 
-   
-    AddDNSSECRecordsResponse struct  {
-        XMLName xml.Name `xml:"epp"`
-        Text    string   `xml:",chardata"`
-        Result  struct {
-            Text       string `xml:",chardata"`
-            ResultCode string `xml:"resultCode"`
-            ResultMsg  string `xml:"resultMsg"`
-        } `xml:"result"`
-        ResultData string `xml:"resultData"`
-    } 
-    
-    DeleteDNSSECRecordsResponse struct {
-        XMLName xml.Name `xml:"epp"`
-        Text    string   `xml:",chardata"`
-        Result  struct {
-            Text       string `xml:",chardata"`
-            ResultCode string `xml:"resultCode"`
-            ResultMsg  string `xml:"resultMsg"`
-        } `xml:"result"`
-        ResultData string `xml:"resultData"`
-    } 
-    
+	StatusForwardResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData struct {
+			Text      string `xml:",chardata"`
+			Target    string `xml:"target"`
+			Type      string `xml:"type"`
+			Header    string `xml:"header"`
+			Noframe   string `xml:"noframe"`
+			Subdomain string `xml:"subdomain"`
+			Path      string `xml:"path"`
+		} `xml:"resultData"`
+	}
+
+	UpdateForwardResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData string `xml:"resultData"`
+	}
+)
+
+// DNSSEC
+// =============================================================
+type (
+	ListDNSSECRecordsResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData struct {
+			Text   string `xml:",chardata"`
+			Dnssec struct {
+				Text  string `xml:",chardata"`
+				Value []struct {
+					Text       string `xml:",chardata"`
+					ID         string `xml:"id"`
+					Keytag     string `xml:"keytag"`
+					Algorithm  string `xml:"algorithm"`
+					Digesttype string `xml:"digesttype"`
+					Digest     string `xml:"digest"`
+				} `xml:"value"`
+			} `xml:"dnssec"`
+			Domain string `xml:"domain"`
+		} `xml:"resultData"`
+	}
+
+	AddDNSSECRecordsResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData string `xml:"resultData"`
+	}
+
+	DeleteDNSSECRecordsResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData string `xml:"resultData"`
+	}
 )
