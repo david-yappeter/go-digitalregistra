@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"os"
 	"time"
 )
 
@@ -23,7 +22,7 @@ type Option struct {
 	HttpClient *http.Client `json:"http_client"`
 }
 
-func NewAPI(defaultUrl string, client ...Option) *API {
+func NewAPI(defaultUrl string, username string, password string, client ...Option) *API {
 	api := API{
 		DefaultUrl: defaultUrl,
 		Client: &http.Client{
@@ -33,18 +32,21 @@ func NewAPI(defaultUrl string, client ...Option) *API {
 	if len(client) > 0 {
 		api.Client = client[0].HttpClient
 	}
+
+    api.Username = username
+    api.Password = password
 	return &api
 }
 
 func (a *API) newRequest(method string, link string, data url.Values) *API {
 	var body io.Reader = nil
 	if data != nil {
-		data.Add("username", os.Getenv("DIGITAL_REGISTRA_USERNAME"))
-		data.Add("password", os.Getenv("DIGITAL_REGISTRA_PASSWORD"))
+		data.Add("username", a.Username)
+		data.Add("password", a.Password)
 	} else {
 		data = url.Values{}
-		data.Add("username", os.Getenv("DIGITAL_REGISTRA_USERNAME"))
-		data.Add("password", os.Getenv("DIGITAL_REGISTRA_PASSWORD"))
+		data.Add("username", a.Username)
+		data.Add("password", a.Password)
 	}
 	body = bytes.NewBufferString(data.Encode())
 	request, err := http.NewRequest(method, link, body)
