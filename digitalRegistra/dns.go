@@ -3,7 +3,7 @@ package digitalregistra
 import "encoding/xml"
 
 func (a *API) InfoDNS(input InfoDNSParam) (*InfoDNSResponse, error) {
-	if err := a.newRequest(a.endpointDomainRegistration(ModelToURLValues(input))).Error; err != nil {
+	if err := a.newRequest(a.endpointInfoDNS(ModelToURLValues(input))).Error; err != nil {
 		return nil, err
 	}
 
@@ -22,7 +22,7 @@ func (a *API) InfoDNS(input InfoDNSParam) (*InfoDNSResponse, error) {
 }
 
 func (a *API) InisialisasiDNS(input InisialisasiDNSParam) (*InisialisasiDNSResponse, error) {
-	if err := a.newRequest(a.endpointDomainRegistration(ModelToURLValues(input))).Error; err != nil {
+	if err := a.newRequest(a.endpointInisialisasiDNS(ModelToURLValues(input))).Error; err != nil {
 		return nil, err
 	}
 
@@ -41,7 +41,7 @@ func (a *API) InisialisasiDNS(input InisialisasiDNSParam) (*InisialisasiDNSRespo
 }
 
 func (a *API) EditDNSRecord(input EditDNSRecordParam) (*EditDNSRecordResponse, error) {
-	if err := a.newRequest(a.endpointDomainRegistration(ModelToURLValues(input))).Error; err != nil {
+	if err := a.newRequest(a.endpointEditDNSRecord(ModelToURLValues(input))).Error; err != nil {
 		return nil, err
 	}
 
@@ -60,7 +60,7 @@ func (a *API) EditDNSRecord(input EditDNSRecordParam) (*EditDNSRecordResponse, e
 }
 
 func (a *API) CreateDNSRecord(input CreateDNSRecordParam) (*CreateDNSRecordResponse, error) {
-	if err := a.newRequest(a.endpointDomainRegistration(ModelToURLValues(input))).Error; err != nil {
+	if err := a.newRequest(a.endpointCreateDNSRecord(ModelToURLValues(input))).Error; err != nil {
 		return nil, err
 	}
 
@@ -79,7 +79,7 @@ func (a *API) CreateDNSRecord(input CreateDNSRecordParam) (*CreateDNSRecordRespo
 }
 
 func (a *API) DeleteDNSRecord(input DeleteDNSRecordParam) (*DeleteDNSRecordResponse, error) {
-	if err := a.newRequest(a.endpointDomainRegistration(ModelToURLValues(input))).Error; err != nil {
+	if err := a.newRequest(a.endpointDeleteDNSRecord(ModelToURLValues(input))).Error; err != nil {
 		return nil, err
 	}
 

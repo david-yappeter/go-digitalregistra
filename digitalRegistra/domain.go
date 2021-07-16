@@ -78,7 +78,7 @@ func (a *API) UnlockDomain(input UnlockDomainParam) (*UnlockDomainResponse, erro
 	return &responseModel, nil
 }
 
-func (a *API) RenewDomain(input RenewDomainParam) (*RenewDomainParam, error) {
+func (a *API) RenewDomain(input RenewDomainParam) (*RenewDomainResponse, error) {
 	if err := a.newRequest(a.endpointRenewDomain(ModelToURLValues(input))).Error; err != nil {
 		return nil, err
 	}
@@ -88,7 +88,7 @@ func (a *API) RenewDomain(input RenewDomainParam) (*RenewDomainParam, error) {
 		return nil, err
 	}
 
-	var responseModel RenewDomainParam
+	var responseModel RenewDomainResponse
 	err = xml.Unmarshal(body, &responseModel)
 	if err != nil {
 		return nil, err

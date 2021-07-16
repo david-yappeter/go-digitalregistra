@@ -54,6 +54,20 @@ type (
 		ResultData string `xml:"resultData"`
 	}
 
+	RenewDomainResponse struct {
+		XMLName xml.Name `xml:"epp"`
+		Text    string   `xml:",chardata"`
+		Result  struct {
+			Text       string `xml:",chardata"`
+			ResultCode string `xml:"resultCode"`
+			ResultMsg  string `xml:"resultMsg"`
+		} `xml:"result"`
+		ResultData struct {
+			Text   string `xml:",chardata"`
+			ExDate string `xml:"exDate"`
+		} `xml:"resultData"`
+	}
+
 	InfoDomainResponse struct {
 		XMLName xml.Name `xml:"epp"`
 		Text    string   `xml:",chardata"`
