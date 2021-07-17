@@ -1,4 +1,4 @@
-package api
+package godigitalregistra
 
 import "github.com/david-yappeter/go-digitalregistra/digitalregistra"
 
