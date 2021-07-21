@@ -329,7 +329,7 @@ type (
 type (
 	CreateUserParam struct {
 		Username         string  `json:"user_name" digitalregistra:"user_username"`
-		Password         string  `json:"password" digitalregistra:"user_pasword"`
+		Password         string  `json:"password" digitalregistra:"user_password"`
 		Email            *string `json:"email" digitalregistra:"email"`
 		Firstname        string  `json:"firstname" digitalregistra:"fname"`
 		Company          *string `json:"company" digitalregistra:"company"`
