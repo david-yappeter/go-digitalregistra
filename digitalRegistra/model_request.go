@@ -300,35 +300,35 @@ type (
 // RESELLER
 // =============================================================
 type (
-    RequestDepositResellerParam struct {
-        BankTujuan string `json:"bank_tujuan" digitalregistra:"bank_tujuan"`
-        NamaPemilik string `json:"nama_pemilik" digitalregistra:"nama_pemilik"`
-        Jumlah int `json:"jumlah" digitalregistra:"jumlah"`
-        Keterangan string `json:"keterangan" digitalregistra:"keterangan"`
-        NoRekening *string `json:"no_rekening" digitalregistra:"no_rekening"`
-    }
+	RequestDepositResellerParam struct {
+		BankTujuan  string  `json:"bank_tujuan" digitalregistra:"bank_tujuan"`
+		NamaPemilik string  `json:"nama_pemilik" digitalregistra:"nama_pemilik"`
+		Jumlah      int     `json:"jumlah" digitalregistra:"jumlah"`
+		Keterangan  string  `json:"keterangan" digitalregistra:"keterangan"`
+		NoRekening  *string `json:"no_rekening" digitalregistra:"no_rekening"`
+	}
 
-    AddSubresellerDirectFundParam struct {
-        ResellerID int `json:"reseller_id" digitalregistra:"resellerid"`
-        Amount int `json:"amount" digitalregistra:"amount"`
-    }
+	AddSubresellerDirectFundParam struct {
+		ResellerID int `json:"reseller_id" digitalregistra:"resellerid"`
+		Amount     int `json:"amount" digitalregistra:"amount"`
+	}
 
-    ListSubresellerParam struct {
-        Search *string `json:"search" digitalregistra:"search"`
-        Limit *int `json:"limit" digitalregistra:"limit"`
-        Offset *int `json:"offset" digitalregistra:"offset"`
-    }
+	ListSubresellerParam struct {
+		Search *string `json:"search" digitalregistra:"search"`
+		Limit  *int    `json:"limit" digitalregistra:"limit"`
+		Offset *int    `json:"offset" digitalregistra:"offset"`
+	}
 
-    InfoSubresellerParam struct {
-        ResellerID int `json:"reseller_id" digitalregistra:"resellerid"`
-    }
+	InfoSubresellerParam struct {
+		ResellerID int `json:"reseller_id" digitalregistra:"resellerid"`
+	}
 )
 
-// USE
+// USER
 // =============================================================
 type (
 	CreateUserParam struct {
-		Username         string  `json:"user_name" digitalregistra:"use_username"`
+		Username         string  `json:"user_name" digitalregistra:"user_username"`
 		Password         string  `json:"password" digitalregistra:"user_pasword"`
 		Email            *string `json:"email" digitalregistra:"email"`
 		Firstname        string  `json:"firstname" digitalregistra:"fname"`
@@ -379,14 +379,13 @@ type (
 // =============================================================
 type (
 	MoveServiceParam struct {
-		Domain string `json:"domain" digitalregistra:"domain"`
-        UserID int `json:"user_id" digitalregistra:"user_userid"`
-        Username string `json:"user_name" digitalregistra:"user_username"`
-        EppCode string `json:"epp_code" digitalregistra:"epp_code"`
-        CurrentContact *bool `json:"current_contact" digitalregistra:"current_contact"`
+		Domain         string `json:"domain" digitalregistra:"domain"`
+		UserID         int    `json:"user_id" digitalregistra:"user_userid"`
+		Username       string `json:"user_name" digitalregistra:"user_username"`
+		EppCode        string `json:"epp_code" digitalregistra:"epp_code"`
+		CurrentContact *bool  `json:"current_contact" digitalregistra:"current_contact"`
 	}
 )
-
 
 // DNS
 // =============================================================
@@ -417,46 +416,45 @@ type (
 	}
 )
 
-
 // FORWARD
 // =============================================================
 type (
-    InitialForwarderParam struct {
-        Domain string `json:"domain" digitalregistra:"domain"`
-    }
+	InitialForwarderParam struct {
+		Domain string `json:"domain" digitalregistra:"domain"`
+	}
 
-    StatusForwardParam struct {
-        Domain string `json:"domain" digitalregistra:"domain"`
-    }
-    
-    UpdateForwardParam struct {
-        Domain string `json:"domain" digitalregistra:"domain"`
-        Target string `json:"target" digitalregistra:"target"`
-        Header *string `json:"header" digitalregistra:"header"`
-        NoFrame *string `json:"no_frame" digitalregistra:"noframe"`
-        Type *string `json:"type" digitalregistra:"type"`
-        SubDomain *bool `json:"sub_domain" digitalregistra:"subdomain"`
-        Path *bool `json:"path" digitalregistra:"path"`
-    }
+	StatusForwardParam struct {
+		Domain string `json:"domain" digitalregistra:"domain"`
+	}
+
+	UpdateForwardParam struct {
+		Domain    string  `json:"domain" digitalregistra:"domain"`
+		Target    string  `json:"target" digitalregistra:"target"`
+		Header    *string `json:"header" digitalregistra:"header"`
+		NoFrame   *string `json:"no_frame" digitalregistra:"noframe"`
+		Type      *string `json:"type" digitalregistra:"type"`
+		SubDomain *bool   `json:"sub_domain" digitalregistra:"subdomain"`
+		Path      *bool   `json:"path" digitalregistra:"path"`
+	}
 )
 
 // DNSSEC
 // =============================================================
 type (
-    ListDNSSECRecordsParam struct {
-        Domain string `json:"domain" digitalregistra:"domain"`
-    }
+	ListDNSSECRecordsParam struct {
+		Domain string `json:"domain" digitalregistra:"domain"`
+	}
 
-    AddDNSSECRecordsParam struct {
-        Domain string `json:"domain" digitalregistra:"domain"`
-        KeyTag int `json:"key_tag" digitalregistra:"keytag"`
-        Algorithm int `json:"algorithm" digitalregistra:"algorithm"`
-        DigestType int `json:"digesttype" digitalregistra:"digesttype"`
-        Digest string `json:"digest" digitalregistra:"digest"`
-    }
+	AddDNSSECRecordsParam struct {
+		Domain     string `json:"domain" digitalregistra:"domain"`
+		KeyTag     int    `json:"key_tag" digitalregistra:"keytag"`
+		Algorithm  int    `json:"algorithm" digitalregistra:"algorithm"`
+		DigestType int    `json:"digesttype" digitalregistra:"digesttype"`
+		Digest     string `json:"digest" digitalregistra:"digest"`
+	}
 
-    DeleteDNSSECRecordsParam struct {
-        Domain string `json:"domain" digitalregistra:"domain"`
-        RecordID int `json:"record_id" digitalregistra:"id"`
-    }
+	DeleteDNSSECRecordsParam struct {
+		Domain   string `json:"domain" digitalregistra:"domain"`
+		RecordID int    `json:"record_id" digitalregistra:"id"`
+	}
 )
