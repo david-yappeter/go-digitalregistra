@@ -12,7 +12,7 @@ type (
 		NS3            *string `json:"ns3" digitalregistra:"ns3"`
 		NS4            *string `json:"ns4" digitalregistra:"ns4"`
 		Firstname      string  `json:"first_name" digitalregistra:"fname"`
-		Lastname       string  `json:"last_name" digitalregistra:"lname"`
+		Lastname       *string `json:"last_name" digitalregistra:"lname"`
 		Company        *string `json:"company" digitalregistra:"company"`
 		Address1       string  `json:"address1" digitalregistra:"address1"`
 		Address2       *string `json:"address2" digitalregistra:"address2"`
